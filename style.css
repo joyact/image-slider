@@ -11,7 +11,8 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  width: 70%; /* slide width control */
+  width: 80%; /* slide width control */
+  overflow: hidden;
 }
 
 /* title style */
@@ -36,6 +37,7 @@ h1 span {
 
 .slide {
   min-width: 100%;
+  position: relative;
 }
 
 .slide img {
@@ -51,6 +53,22 @@ h1 span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.slide-txt {
+  position: absolute;
+  color: #fff;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slide-txt h1 {
+  border-bottom: 3px solid #fff;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 35px;
+  text-shadow: 0 5px 5px #000;
 }
 
 /* button style */
