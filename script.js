@@ -29,15 +29,42 @@ const moveToNextSlide = () => {
   imgWrapper.style.transition = '.7s';
 };
 
+const moveToPreviousSlide = () => {
+  slide = getSlides();
+  if (index <= 0) return;
+  index--;
+  imgWrapper.style.transform = `translateX(${-slideWidth * index}px)`;
+  imgWrapper.style.transition = '.7s';
+};
+
 const startSlide = () => {
   slideId = setInterval(() => {
     moveToNextSlide();
   }, interval);
 };
 
+imgWrapper.addEventListener('transitionend', () => {
+  //reselect slide to call back
+  slide = getSlides();
+  switch (slide[index].id) {
+    case 'first-clone':
+      imgWrapper.style.transition = 'none';
+      index = 1;
+      imgWrapper.style.transform = `translateX(${-slideWidth * index}px)`;
+      break;
+    case 'last-clone':
+      imgWrapper.style.transition = 'none';
+      index = slide.length - 2;
+      imgWrapper.style.transform = `translateX(${-slideWidth * index}px)`;
+      break;
+  }
+});
+
 imgSlider.addEventListener('mouseover', () => {
   clearInterval(slideId);
 });
 
 imgSlider.addEventListener('mouseleave', startSlide);
+nextBtn.addEventListener('click', moveToNextSlide);
+prevBtn.addEventListener('click', moveToPreviousSlide);
 startSlide();
