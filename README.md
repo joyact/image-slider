@@ -6,7 +6,7 @@ No jQuery, No Bootstrap, Only Javascipt image slider. This slider automatically 
 
 ## Preview
 
-👉 [Live Demo](https://joyact-image-slider.netlify.app/)
+👉 [Live Demo](https://slider-joy.netlify.app/)
 
 ![image-slide](img/readme.gif)
 
